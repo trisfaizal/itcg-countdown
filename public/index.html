@@ -3,39 +3,89 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Countdown to #ITCG2027: IT Community Gathering. Saturday, 16 January 2027 at Sutan Raja Hotel and Convention Centre. Intelligence in Motion.">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="Official countdown to #ITCG2027: IT Community Gathering. Saturday, 16 January 2027 at Sutan Raja Hotel and Convention Centre. Intelligence in Motion.">
   <title>#ITCG2027: IT Community Gathering</title>
 
-  <!-- Typography: Inter & JetBrains Mono for Swiss modern editorial precision -->
+  <!-- Typography: Inter for bold italic display grotesk & JetBrains Mono for technical tabular precision -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      color-scheme: light;
-      --red: #e52b3b;
-      --red-hover: #cf1f2e;
-      --red-subtle: rgba(229, 43, 59, 0.05);
-      --red-border: rgba(229, 43, 59, 0.2);
-      --blue: #174b85;
-      --blue-hover: #103b6b;
-      --blue-subtle: rgba(23, 75, 133, 0.06);
-      --blue-border: rgba(23, 75, 133, 0.2);
-      --ink: #090d16;
-      --ink-secondary: #1e293b;
-      --slate: #475569;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --border-dark: #cbd5e1;
-      --line: #edf1f7;
-      --surface: #ffffff;
-      --surface-subtle: #f8fafc;
-      --bg: #ffffff;
+      /* Shared Brand Accents */
+      --red: #F5223E;
+      --red-hover: #D9122C;
+      --red-subtle: rgba(245, 34, 62, 0.12);
+      --red-border: rgba(245, 34, 62, 0.35);
+
+      --blue: #1268D5;
+      --blue-hover: #0E54AD;
+      --blue-subtle: rgba(18, 104, 213, 0.15);
+      --blue-border: rgba(18, 104, 213, 0.35);
+
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-      --shadow-sm: 0 1px 2px rgba(9, 13, 22, 0.03);
+
+      /* Dark Theme (Default) */
+      --bg-primary: #071426;
+      --bg-surface: #0B1D35;
+      --bg-subtle: #0F2542;
+      --text-primary: #FFFFFF;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(18, 104, 213, 0.3);
+      --halftone-color: rgba(18, 104, 213, 0.28);
+      --card-bg: rgba(11, 29, 53, 0.72);
+      --card-border: rgba(18, 104, 213, 0.24);
+    }
+
+    /* Light Theme via System Preference */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-primary: #FFFFFF;
+        --bg-surface: #F8FAFC;
+        --bg-subtle: #F1F5F9;
+        --text-primary: #071426;
+        --text-secondary: #334155;
+        --text-muted: #64748B;
+        --border-color: #E2E8F0;
+        --border-strong: rgba(18, 104, 213, 0.25);
+        --halftone-color: rgba(18, 104, 213, 0.2);
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: #E2E8F0;
+      }
+    }
+
+    /* Explicit Overrides when data-theme is set */
+    [data-theme="dark"] {
+      --bg-primary: #071426;
+      --bg-surface: #0B1D35;
+      --bg-subtle: #0F2542;
+      --text-primary: #FFFFFF;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(18, 104, 213, 0.3);
+      --halftone-color: rgba(18, 104, 213, 0.28);
+      --card-bg: rgba(11, 29, 53, 0.72);
+      --card-border: rgba(18, 104, 213, 0.24);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #FFFFFF;
+      --bg-surface: #F8FAFC;
+      --bg-subtle: #F1F5F9;
+      --text-primary: #071426;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --border-strong: rgba(18, 104, 213, 0.25);
+      --halftone-color: rgba(18, 104, 213, 0.2);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-border: #E2E8F0;
     }
 
     *, *::before, *::after {
@@ -49,49 +99,101 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
-      background-color: var(--bg);
+      background-color: var(--bg-primary);
+      overflow-x: hidden;
     }
 
     body {
       min-height: 100vh;
-      color: var(--ink);
+      color: var(--text-primary);
       font-family: var(--font-sans);
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 1px 1px, rgba(9, 13, 22, 0.04) 1px, transparent 0);
-      background-size: 28px 28px;
+      background-color: var(--bg-primary);
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
       line-height: 1.5;
-    }
-
-    /* Container Shell */
-    .shell {
-      width: min(1180px, calc(100% - 48px));
-      margin-inline: auto;
       position: relative;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Compact Header */
+    /* Ambient Subtle Grid Pattern */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0);
+      background-size: 32px 32px;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    /* Architectural Corner Graphics */
+    .decor-corner {
+      position: fixed;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Top Left Angular Triangles & Lines */
+    .corner-tl {
+      top: 0;
+      left: 0;
+      width: clamp(200px, 20vw, 300px);
+      height: clamp(200px, 20vw, 300px);
+    }
+
+    /* Bottom Right Angular Triangles & Lines */
+    .corner-br {
+      bottom: 0;
+      right: 0;
+      width: clamp(220px, 22vw, 340px);
+      height: clamp(220px, 22vw, 340px);
+    }
+
+    /* Halftone Dot Patterns */
+    .halftone-tr {
+      top: 0;
+      right: 0;
+      width: clamp(200px, 24vw, 360px);
+      height: clamp(200px, 24vw, 360px);
+    }
+
+    .halftone-bl {
+      bottom: 0;
+      left: 0;
+      width: clamp(180px, 20vw, 300px);
+      height: clamp(180px, 20vw, 300px);
+    }
+
+    /* Main Viewport Container */
+    .viewport-shell {
+      position: relative;
+      z-index: 10;
+      width: min(1360px, calc(100% - 64px));
+      margin-inline: auto;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-block: 22px 18px;
+    }
+
+    /* Header Bar */
     header {
       width: 100%;
-      border-bottom: 1px solid var(--line);
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
       flex-shrink: 0;
-      z-index: 20;
     }
 
     .header-inner {
-      height: 62px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
     }
 
-    .brand-group {
+    .header-brand-wrap {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -99,9 +201,10 @@
       color: inherit;
     }
 
+    /* Geometric Brand Mark */
     .brand-mark {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       position: relative;
       display: inline-block;
       flex-shrink: 0;
@@ -111,8 +214,8 @@
     .brand-mark::after {
       content: "";
       position: absolute;
-      top: 1px;
-      bottom: 1px;
+      top: 2px;
+      bottom: 2px;
       width: 9px;
       transform: skew(-18deg);
       border-radius: 1px;
@@ -125,20 +228,20 @@
 
     .brand-mark::after {
       background: var(--blue);
-      left: 12px;
+      left: 13px;
     }
 
-    .brand-text {
+    .brand-meta {
       display: flex;
       flex-direction: column;
     }
 
-    .brand-title {
+    .brand-name {
       font-size: 14px;
       font-weight: 900;
       letter-spacing: 0.16em;
       line-height: 1.1;
-      color: var(--ink);
+      color: var(--text-primary);
     }
 
     .brand-sub {
@@ -146,34 +249,21 @@
       font-size: 8px;
       font-weight: 700;
       letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-top: 2px;
+      color: var(--text-muted);
+      margin-top: 1px;
       text-transform: uppercase;
     }
 
-    .header-actions {
+    .header-right {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .event-pill {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      color: var(--red);
-      background: var(--red-subtle);
-      border: 1px solid var(--red-border);
-      padding: 4px 10px;
-      border-radius: 2px;
-      text-transform: uppercase;
-    }
-
-    .status-pill {
+    .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
@@ -181,127 +271,287 @@
       color: var(--blue);
       background: var(--blue-subtle);
       border: 1px solid var(--blue-border);
-      padding: 5px 11px;
+      padding: 5px 12px;
       border-radius: 2px;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
-    .pulse-dot {
-      width: 6px;
-      height: 6px;
+    .pulse-ring {
+      width: 7px;
+      height: 7px;
       background-color: var(--blue);
       border-radius: 50%;
       position: relative;
       flex-shrink: 0;
     }
 
-    .pulse-dot::after {
+    .pulse-ring::after {
       content: "";
       position: absolute;
       inset: -3px;
       border-radius: 50%;
       border: 1.5px solid var(--blue);
       opacity: 0.6;
-      animation: pulse-ring 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      animation: pulseAnim 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
     }
 
-    @keyframes pulse-ring {
-      0% { transform: scale(0.7); opacity: 0.8; }
+    @keyframes pulseAnim {
+      0% { transform: scale(0.7); opacity: 0.9; }
       50% { transform: scale(1.6); opacity: 0; }
       100% { transform: scale(1.6); opacity: 0; }
     }
 
-    /* Main Centerpiece Area */
+    /* Main Split Stage */
     main {
       flex: 1;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding-block: 28px;
+      padding-block: 12px;
     }
 
-    .countdown-stage {
+    .split-layout {
       width: 100%;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
       align-items: center;
-      text-align: center;
+      gap: clamp(32px, 5vw, 68px);
     }
 
-    /* Event Title - visually secondary to countdown */
-    .stage-intro {
+    /* Left Section: Event Identity */
+    .identity-col {
       display: flex;
       flex-direction: column;
+      gap: clamp(14px, 2.2vh, 22px);
+    }
+
+    .identity-brand-lockup {
+      display: flex;
       align-items: center;
+      gap: 14px;
+      padding-bottom: 4px;
+    }
+
+    .identity-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .identity-brand-title {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      line-height: 1.1;
+      color: var(--text-primary);
+    }
+
+    .identity-brand-sub {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+
+    .tag-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .event-tag {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--red);
+      background: var(--red-subtle);
+      border: 1px solid var(--red-border);
+      padding: 4px 12px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+    }
+
+    .event-tag-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 1px;
+    }
+
+    .edition-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* Bold Italic Headline */
+    h1.display-title {
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+      font-weight: 950;
+      font-style: italic;
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .title-part-one {
+      display: block;
+      color: var(--text-primary);
+    }
+
+    .title-part-two {
+      display: block;
+      color: var(--blue);
+    }
+
+    /* Thematic Lockup */
+    .theme-block {
+      display: flex;
+      flex-direction: column;
       gap: 6px;
-      margin-bottom: 24px;
+      padding-top: 2px;
     }
 
-    .event-edition-label {
+    .theme-label {
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 0.2em;
-      color: var(--red);
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
       text-transform: uppercase;
     }
 
-    h1.event-title {
-      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    .theme-headline {
+      font-size: clamp(1.2rem, 2.1vw, 1.75rem);
       font-weight: 900;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: var(--text-primary);
       line-height: 1.15;
     }
 
-    /* Countdown Display - Primary Visual Focus */
-    .timer-container {
-      width: 100%;
-      max-width: 960px;
-      margin-inline: auto;
-      margin-block: 8px 24px;
+    .theme-subline {
+      font-size: clamp(0.95rem, 1.3vw, 1.12rem);
+      font-weight: 500;
+      color: var(--text-secondary);
+      line-height: 1.45;
     }
 
-    .timer-row {
+    /* Right Section: Countdown & Event Details */
+    .countdown-col {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(14px, 2.2vh, 22px);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 4px;
+      padding: clamp(20px, 2.8vh, 32px) clamp(20px, 2.6vw, 34px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      position: relative;
+    }
+
+    /* Top registration crosshairs */
+    .crosshair {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 12px;
+      user-select: none;
+      pointer-events: none;
+    }
+    .crosshair-tl { top: -6px; left: -6px; }
+    .crosshair-br { bottom: -6px; right: -6px; }
+
+    .countdown-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .countdown-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .countdown-caption::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+      border-radius: 1px;
+    }
+
+    .countdown-target-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* 4 Countdown Numerals Horizontal Row */
+    .timer-matrix {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      align-items: center;
+      gap: 10px;
+      text-align: center;
     }
 
-    .timer-col {
+    .timer-unit {
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
-      padding-block: 10px 8px;
     }
 
-    .digit-box {
+    .numeral-box {
       display: block;
-      line-height: 0.92;
+      line-height: 0.9;
     }
 
-    .digit-val {
-      font-size: clamp(4.4rem, 9.6vw, 8.4rem);
+    .numeral {
+      font-size: clamp(3.2rem, 5.2vw, 5.2rem);
       font-weight: 950;
       line-height: 0.9;
       letter-spacing: -0.06em;
-      color: var(--ink);
+      color: var(--text-primary);
       font-variant-numeric: tabular-nums lining-nums;
       font-feature-settings: "tnum" 1, "lnum" 1;
       display: inline-block;
       transition: transform 0.15s ease-out, opacity 0.15s ease-out;
     }
 
-    .digit-val.tick {
-      animation: digitTick 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    .numeral.tick {
+      animation: microTick 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    @keyframes digitTick {
+    @keyframes microTick {
       0% { transform: translateY(-2px); opacity: 0.75; }
       100% { transform: translateY(0); opacity: 1; }
     }
@@ -311,309 +561,375 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      margin-top: 14px;
+      margin-top: 10px;
+      width: 100%;
     }
 
-    .unit-rule {
-      width: 28px;
-      height: 2px;
-      background: var(--line);
+    /* Alternating Red and Blue Accent Indicators */
+    .unit-indicator {
+      width: 30px;
+      height: 3px;
       border-radius: 1px;
     }
 
-    .col-days .unit-rule,
-    .col-minutes .unit-rule {
+    .unit-days .unit-indicator,
+    .unit-minutes .unit-indicator {
       background: var(--red);
     }
 
-    .col-hours .unit-rule,
-    .col-seconds .unit-rule {
+    .unit-hours .unit-indicator,
+    .unit-seconds .unit-indicator {
       background: var(--blue);
     }
 
-    .unit-name {
+    .unit-label {
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text-muted);
     }
 
-    /* Live status message */
-    .status-banner {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      color: var(--blue);
-      text-transform: uppercase;
-      margin-top: 4px;
+    /* Thin Divider */
+    .col-divider {
+      height: 1px;
+      width: 100%;
+      background: var(--border-color);
+    }
+
+    /* Event Details Section */
+    .details-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-header {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .status-banner::before {
-      content: "";
+    .detail-icon {
+      width: 12px;
+      height: 12px;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+
+    .detail-tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--red);
+      text-transform: uppercase;
+    }
+
+    .detail-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .detail-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    /* Live status line */
+    .status-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+      padding-top: 2px;
+    }
+
+    .status-text {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .status-dot {
       width: 6px;
       height: 6px;
       background: var(--blue);
       border-radius: 50%;
     }
 
-    /* Theme and Tagline - subtle supporting text */
-    .stage-theme {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      margin-top: 20px;
+    .tz-info {
+      color: var(--text-muted);
+      font-size: 9px;
     }
 
-    .theme-heading {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink);
+    /* Integrated Footer */
+    footer {
+      width: 100%;
+      flex-shrink: 0;
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
     }
 
-    .theme-caption {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--slate);
-    }
-
-    /* Event Specifications Bar */
-    .specs-strip {
+    .footer-inner {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px 24px;
-      margin-top: 22px;
-      padding: 10px 24px;
-      background: transparent;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      justify-content: flex-start;
     }
 
-    .spec-entry {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-size: 13px;
-    }
-
-    .spec-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      color: var(--red);
-      text-transform: uppercase;
-    }
-
-    .spec-value {
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .spec-divider {
-      color: var(--border-dark);
+    .footer-tagline {
       font-family: var(--font-mono);
       font-size: 11px;
-      user-select: none;
-    }
-
-    /* Compact Footer */
-    footer {
-      border-top: 1px solid var(--line);
-      background-color: var(--bg);
-      flex-shrink: 0;
-      padding-block: 14px;
-    }
-
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-family: var(--font-mono);
-      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-    }
-
-    .footer-brand {
-      color: var(--ink);
-      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      text-transform: lowercase;
     }
 
     /* Desktop Viewport Enforcement: 100vh with NO vertical scroll */
-    @media (min-width: 900px) and (min-height: 640px) {
+    @media (min-width: 960px) and (min-height: 640px) {
       html, body {
         height: 100vh;
         overflow: hidden;
       }
 
-      main {
-        padding-block: 14px;
+      .viewport-shell {
+        height: 100vh;
       }
 
-      .stage-intro {
-        margin-bottom: 14px;
-      }
-
-      .timer-container {
-        margin-block: 4px 16px;
-      }
-
-      .stage-theme {
-        margin-top: 16px;
-      }
-
-      .specs-strip {
-        margin-top: 18px;
-        padding: 10px 22px;
+      /* Hide duplicate header brand on desktop since it is featured in the left column */
+      .header-brand-wrap {
+        visibility: hidden;
       }
     }
 
     /* Small Desktop / Laptop Screen Tuning */
-    @media (min-width: 900px) and (max-height: 760px) {
+    @media (min-width: 960px) and (max-height: 760px) {
+      .viewport-shell {
+        padding-block: 12px;
+      }
+
       .header-inner {
-        height: 52px;
+        height: 38px;
       }
 
-      .digit-val {
-        font-size: clamp(3.6rem, 7.5vw, 5.6rem);
+      .identity-col {
+        gap: 12px;
       }
 
-      .stage-intro {
-        margin-bottom: 8px;
+      h1.display-title {
+        font-size: clamp(2.1rem, 4.2vw, 3.5rem);
       }
 
-      .timer-container {
-        margin-block: 2px 8px;
+      .numeral {
+        font-size: clamp(2.8rem, 4.4vw, 4.4rem);
       }
 
-      .stage-theme {
-        margin-top: 8px;
+      .countdown-col {
+        padding: 16px 20px;
+        gap: 12px;
       }
 
-      .specs-strip {
-        margin-top: 10px;
-        padding: 8px 16px;
+      .details-row {
+        gap: 10px;
+      }
+
+      .detail-val {
+        font-size: 12px;
       }
 
       footer {
-        padding-block: 10px;
+        padding-top: 6px;
       }
     }
 
-    /* Mobile and Tablet Styles */
-    @media (max-width: 720px) {
+    /* Mobile and Tablet Layout */
+    @media (max-width: 959px) {
       body {
         overflow-y: auto;
       }
 
-      main {
-        padding-block: 20px 16px;
+      .viewport-shell {
+        height: auto;
+        min-height: 100vh;
+        width: min(600px, calc(100% - 36px));
+        padding-block: 16px 24px;
+        gap: 22px;
       }
 
-      .header-inner {
-        height: 54px;
+      .corner-tl {
+        width: 85px;
+        height: 85px;
       }
 
-      .event-pill {
+      .corner-br {
+        width: 110px;
+        height: 110px;
+      }
+
+      .header-brand-wrap {
+        visibility: visible;
+        padding-left: 10px;
+      }
+
+      .identity-brand-lockup {
         display: none;
       }
 
-      .stage-intro {
-        margin-bottom: 12px;
+      .split-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
 
-      .timer-container {
-        margin-block: 2px 14px;
+      .identity-col {
+        gap: 12px;
       }
 
-      .timer-row {
+      h1.display-title {
+        font-size: clamp(2.1rem, 9.2vw, 3.2rem);
+      }
+
+      .countdown-col {
+        padding: 20px 16px;
+        gap: 16px;
+      }
+
+      /* 2x2 Grid for Mobile */
+      .timer-matrix {
         grid-template-columns: repeat(2, 1fr);
-        gap: 14px 12px;
-        max-width: 360px;
+        gap: 16px 12px;
       }
 
-      .timer-col {
-        padding-block: 2px;
-        background: transparent;
-        border: none;
+      .numeral {
+        font-size: clamp(2.9rem, 12vw, 4.2rem);
       }
 
-      .digit-val {
-        font-size: clamp(3rem, 13vw, 4.2rem);
+      .details-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
-      .stage-theme {
-        margin-top: 14px;
-      }
-
-      .specs-strip {
+      .detail-item {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 6px;
-        width: 100%;
-        max-width: 360px;
-        margin-top: 16px;
-        padding: 12px 10px;
-        background: transparent;
+        align-items: flex-start;
+        padding-bottom: 8px;
+        border-bottom: 1px dashed var(--border-color);
       }
 
-      .spec-entry {
-        justify-content: center;
-        font-size: 12px;
+      .detail-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
       }
 
-      .spec-divider {
-        display: none;
-      }
-
-      footer {
-        padding-block: 10px;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 6px;
-        font-size: 9px;
+      .footer-inner {
+        justify-content: flex-start;
       }
     }
 
-    @media (max-width: 380px) {
-      .shell {
-        width: calc(100% - 24px);
+    @media (max-width: 480px) {
+      .viewport-shell {
+        width: calc(100% - 20px);
+        padding-block: 14px 18px;
+        gap: 18px;
       }
 
-      .digit-val {
-        font-size: 2.8rem;
+      .header-inner {
+        height: 44px;
+        gap: 8px;
       }
 
-      .timer-row {
-        gap: 12px 10px;
+      .header-brand-wrap {
+        gap: 8px;
+        padding-left: 4px;
       }
 
-      .brand-title {
+      .brand-mark {
+        width: 22px;
+        height: 22px;
+      }
+
+      .brand-name {
         font-size: 12px;
+        letter-spacing: 0.12em;
       }
 
       .brand-sub {
         font-size: 7px;
+        letter-spacing: 0.12em;
+      }
+
+      .status-badge {
+        padding: 4px 8px;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+      }
+
+      .event-tag {
+        font-size: 11px;
+        padding: 3px 8px;
+      }
+
+      .edition-tag {
+        font-size: 9px;
+      }
+
+      h1.display-title {
+        font-size: 2.1rem;
+      }
+
+      .theme-headline {
+        font-size: 1.15rem;
+      }
+
+      .theme-subline {
+        font-size: 0.9rem;
+      }
+
+      .numeral {
+        font-size: 2.8rem;
+      }
+
+      .countdown-col {
+        padding: 16px 14px;
+      }
+
+      .footer-tagline {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .brand-sub {
+        display: none;
+      }
+
+      .status-badge span#nav-status-text {
+        font-size: 8.5px;
+      }
+
+      .timer-matrix {
+        gap: 12px 8px;
+      }
+
+      .numeral {
+        font-size: 2.5rem;
       }
     }
 
@@ -625,8 +941,8 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
-      .pulse-dot::after,
-      .digit-val.tick {
+      .pulse-ring::after,
+      .numeral.tick {
         animation: none !important;
       }
     }
@@ -634,132 +950,260 @@
 </head>
 <body>
 
-  <!-- Compact Masthead Navigation -->
-  <header>
-    <div class="shell">
+  <!-- Ambient Micro Grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Recreated Corner Graphic Elements (SVG) -->
+  <!-- Top Left Angular Wedge Ribbon -->
+  <svg class="decor-corner corner-tl" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Vivid Red Facet -->
+    <polygon points="0,0 180,0 0,180" fill="var(--red)" />
+    <!-- Electric Blue Facet Layer -->
+    <polygon points="0,35 220,0 160,0 0,160" fill="var(--blue)" opacity="0.95" />
+    <!-- Thin Geometric Hairlines with 45-deg Angle Chamfer -->
+    <path d="M 0,200 L 75,200 L 195,80 L 195,0" stroke="var(--blue)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6" />
+    <path d="M 0,175 L 65,175 L 170,70 L 170,0" stroke="var(--red)" stroke-width="2" opacity="0.8" />
+  </svg>
+
+  <!-- Bottom Right Angular Wedge Ribbon -->
+  <svg class="decor-corner corner-br" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Electric Blue Facet Layer -->
+    <polygon points="340,340 120,340 340,120" fill="var(--blue)" opacity="0.95" />
+    <!-- Vivid Red Facet Layer -->
+    <polygon points="340,340 160,340 340,160" fill="var(--red)" />
+    <!-- Thin Geometric Hairlines with 45-deg Angle Chamfer -->
+    <path d="M 340,105 L 260,105 L 110,255 L 110,340" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6" />
+    <path d="M 340,135 L 270,135 L 140,265 L 140,340" stroke="var(--blue)" stroke-width="2" opacity="0.8" />
+  </svg>
+
+  <!-- Halftone Dot Pattern Top Right -->
+  <svg class="decor-corner halftone-tr" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <pattern id="dots-tr" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+        <circle cx="8" cy="8" r="2.2" fill="var(--halftone-color)" />
+      </pattern>
+      <linearGradient id="fade-tr" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+        <stop offset="65%" stop-color="#fff" stop-opacity="0.3" />
+        <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+      </linearGradient>
+      <mask id="mask-tr">
+        <rect width="360" height="360" fill="url(#fade-tr)" />
+      </mask>
+    </defs>
+    <rect width="360" height="360" fill="url(#dots-tr)" mask="url(#mask-tr)" />
+    <!-- Diagonal subtle technical streak lines -->
+    <line x1="160" y1="0" x2="360" y2="200" stroke="var(--halftone-color)" stroke-width="1" opacity="0.4" />
+    <line x1="90" y1="0" x2="360" y2="270" stroke="var(--halftone-color)" stroke-width="1.5" opacity="0.3" stroke-dasharray="6 6" />
+  </svg>
+
+  <!-- Halftone Dot Pattern Bottom Left -->
+  <svg class="decor-corner halftone-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <pattern id="dots-bl" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+        <circle cx="8" cy="8" r="2.2" fill="var(--halftone-color)" />
+      </pattern>
+      <linearGradient id="fade-bl" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+        <stop offset="65%" stop-color="#fff" stop-opacity="0.3" />
+        <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+      </linearGradient>
+      <mask id="mask-bl">
+        <rect width="300" height="300" fill="url(#fade-bl)" />
+      </mask>
+    </defs>
+    <rect width="300" height="300" fill="url(#dots-bl)" mask="url(#mask-bl)" />
+    <!-- Diagonal subtle technical streak lines -->
+    <line x1="0" y1="160" x2="160" y2="0" stroke="var(--halftone-color)" stroke-width="1" opacity="0.4" />
+    <line x1="0" y1="230" x2="230" y2="0" stroke="var(--halftone-color)" stroke-width="1.5" opacity="0.3" stroke-dasharray="6 6" />
+  </svg>
+
+  <!-- Page Viewport Wrapper -->
+  <div class="viewport-shell">
+
+    <!-- Header -->
+    <header>
       <div class="header-inner">
-        <a href="#countdown-stage" class="brand-group" aria-label="KOMITKABE Home">
+        <a href="#event-headline" class="header-brand-wrap" aria-label="KOMITKABE Home">
           <span class="brand-mark" aria-hidden="true"></span>
-          <div class="brand-text">
-            <span class="brand-title">KOMITKABE</span>
+          <div class="brand-meta">
+            <span class="brand-name">KOMITKABE</span>
             <span class="brand-sub">KOMUNITAS IT KAWASAN INDUSTRI</span>
           </div>
         </a>
 
-        <div class="header-actions">
-          <span class="event-pill">#ITCG2027</span>
-          <div class="status-pill" role="status">
-            <span class="pulse-dot" aria-hidden="true"></span>
+        <div class="header-right">
+          <div class="status-badge" role="status">
+            <span class="pulse-ring" aria-hidden="true"></span>
             <span id="nav-status-text">COUNTDOWN ACTIVE</span>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- Main Countdown Stage -->
-  <main class="shell" id="countdown-stage">
-    <div class="countdown-stage">
+    <!-- Main Stage: Distinctive Split Composition -->
+    <main>
+      <div class="split-layout">
 
-      <!-- Event Title: Visually secondary to the timer -->
-      <div class="stage-intro">
-        <span class="event-edition-label">#ITCG2027</span>
-        <h1 class="event-title">IT COMMUNITY GATHERING</h1>
-      </div>
-
-      <!-- Countdown Component: Main Visual Focus -->
-      <div class="timer-container" role="timer" aria-label="Countdown menuju IT Community Gathering 2027">
-        <div class="timer-row">
-          <!-- Days -->
-          <div class="timer-col col-days">
-            <span class="digit-box">
-              <span class="digit-val" id="days">--</span>
-            </span>
-            <div class="unit-meta">
-              <span class="unit-rule" aria-hidden="true"></span>
-              <span class="unit-name">DAYS</span>
+        <!-- Left Section: Event Identity -->
+        <section class="identity-col" aria-labelledby="event-headline">
+          <!-- KOMITKABE Logo & Brand Identity -->
+          <div class="identity-brand-lockup">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <div class="identity-brand-text">
+              <span class="identity-brand-title">KOMITKABE</span>
+              <span class="identity-brand-sub">KOMUNITAS IT KAWASAN INDUSTRI</span>
             </div>
           </div>
 
-          <!-- Hours -->
-          <div class="timer-col col-hours">
-            <span class="digit-box">
-              <span class="digit-val" id="hours">--</span>
+          <div class="tag-row">
+            <span class="event-tag">
+              <span class="event-tag-dot" aria-hidden="true"></span>
+              #ITCG2027
             </span>
-            <div class="unit-meta">
-              <span class="unit-rule" aria-hidden="true"></span>
-              <span class="unit-name">HOURS</span>
+            <span class="edition-tag">6TH ANNUAL GATHERING</span>
+          </div>
+
+          <!-- Large, bold, italic display headline -->
+          <h1 class="display-title" id="event-headline">
+            <span class="title-part-one">IT COMMUNITY</span>
+            <span class="title-part-two">GATHERING</span>
+          </h1>
+
+          <!-- Event Theme & Supporting Text -->
+          <div class="theme-block">
+            <span class="theme-label">CONFERENCE THEME</span>
+            <h2 class="theme-headline">INTELLIGENCE IN MOTION</h2>
+            <p class="theme-subline">Driving Smart Industry. Securing the Future.</p>
+          </div>
+        </section>
+
+        <!-- Right Section: Countdown & Event Details -->
+        <section class="countdown-col" aria-label="Countdown menuju acara">
+          <span class="crosshair crosshair-tl" aria-hidden="true">+</span>
+          <span class="crosshair crosshair-br" aria-hidden="true">+</span>
+
+          <!-- Countdown Header -->
+          <div class="countdown-header">
+            <div class="countdown-caption">TIME TO EVENT COMMENCEMENT</div>
+            <div class="countdown-target-meta">16 JAN 2027, 08:00 WIB (UTC+07:00)</div>
+          </div>
+
+          <!-- 4 Numerals Row -->
+          <div class="timer-matrix" role="timer" aria-live="off">
+            <!-- Days -->
+            <div class="timer-unit unit-days">
+              <span class="numeral-box">
+                <span class="numeral" id="days">--</span>
+              </span>
+              <div class="unit-meta">
+                <span class="unit-indicator" aria-hidden="true"></span>
+                <span class="unit-label">DAYS</span>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="timer-unit unit-hours">
+              <span class="numeral-box">
+                <span class="numeral" id="hours">--</span>
+              </span>
+              <div class="unit-meta">
+                <span class="unit-indicator" aria-hidden="true"></span>
+                <span class="unit-label">HOURS</span>
+              </div>
+            </div>
+
+            <!-- Minutes -->
+            <div class="timer-unit unit-minutes">
+              <span class="numeral-box">
+                <span class="numeral" id="minutes">--</span>
+              </span>
+              <div class="unit-meta">
+                <span class="unit-indicator" aria-hidden="true"></span>
+                <span class="unit-label">MINUTES</span>
+              </div>
+            </div>
+
+            <!-- Seconds -->
+            <div class="timer-unit unit-seconds">
+              <span class="numeral-box">
+                <span class="numeral" id="seconds">--</span>
+              </span>
+              <div class="unit-meta">
+                <span class="unit-indicator" aria-hidden="true"></span>
+                <span class="unit-label">SECONDS</span>
+              </div>
             </div>
           </div>
 
-          <!-- Minutes -->
-          <div class="timer-col col-minutes">
-            <span class="digit-box">
-              <span class="digit-val" id="minutes">--</span>
-            </span>
-            <div class="unit-meta">
-              <span class="unit-rule" aria-hidden="true"></span>
-              <span class="unit-name">MINUTES</span>
+          <!-- Thin Divider -->
+          <div class="col-divider" aria-hidden="true"></div>
+
+          <!-- Event Details -->
+          <div class="details-row">
+            <!-- Date -->
+            <div class="detail-item">
+              <div class="detail-header">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span class="detail-tag">DATE</span>
+              </div>
+              <span class="detail-val">Saturday, 16 January 2027</span>
+              <span class="detail-sub">Main Keynote Assembly</span>
+            </div>
+
+            <!-- Time -->
+            <div class="detail-item">
+              <div class="detail-header">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span class="detail-tag">TIME</span>
+              </div>
+              <span class="detail-val">08:00 WIB</span>
+              <span class="detail-sub">Western Indonesia Time</span>
+            </div>
+
+            <!-- Venue -->
+            <div class="detail-item">
+              <div class="detail-header">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span class="detail-tag">VENUE</span>
+              </div>
+              <span class="detail-val">Sutan Raja Hotel and Convention Centre</span>
+              <span class="detail-sub">Grand Ballroom Area</span>
             </div>
           </div>
 
-          <!-- Seconds -->
-          <div class="timer-col col-seconds">
-            <span class="digit-box">
-              <span class="digit-val" id="seconds">--</span>
+          <!-- Status Line -->
+          <div class="status-line">
+            <span class="status-text" id="status" aria-live="polite">
+              <span class="status-dot" aria-hidden="true"></span>
+              COUNTING DOWN TO THE GATHERING
             </span>
-            <div class="unit-meta">
-              <span class="unit-rule" aria-hidden="true"></span>
-              <span class="unit-name">SECONDS</span>
-            </div>
+            <span class="tz-info">TIMEZONE: ASIA/JAKARTA (WIB)</span>
           </div>
-        </div>
+        </section>
+
       </div>
+    </main>
 
-      <!-- Live Status Line -->
-      <div class="status-banner" id="status" aria-live="polite">
-        COUNTING DOWN TO THE GATHERING
+    <!-- Footer: Exactly 'connect beyond the screen.' -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-tagline">connect beyond the screen.</div>
       </div>
+    </footer>
 
-      <!-- Supporting Theme Text -->
-      <div class="stage-theme">
-        <div class="theme-heading">INTELLIGENCE IN MOTION</div>
-        <p class="theme-caption">Driving Smart Industry. Securing the Future.</p>
-      </div>
-
-      <!-- Compact Event Details Strip -->
-      <section class="specs-strip" aria-label="Informasi Acara">
-        <div class="spec-entry">
-          <span class="spec-tag">DATE</span>
-          <span class="spec-value">Saturday, 16 January 2027</span>
-        </div>
-        <span class="spec-divider" aria-hidden="true">/</span>
-        <div class="spec-entry">
-          <span class="spec-tag">TIME</span>
-          <span class="spec-value">08:00 WIB</span>
-        </div>
-        <span class="spec-divider" aria-hidden="true">/</span>
-        <div class="spec-entry">
-          <span class="spec-tag">VENUE</span>
-          <span class="spec-value">Sutan Raja Hotel and Convention Centre</span>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- Compact Footer -->
-  <footer>
-    <div class="shell">
-      <div class="footer-content">
-        <div class="footer-brand">
-          KOMITKABE : KOMUNITAS IT KAWASAN INDUSTRI
-        </div>
-        <div>CONNECT. COLLABORATE. ELEVATE.</div>
-        <div>IT COMMUNITY GATHERING 2027</div>
-      </div>
-    </div>
-  </footer>
+  </div>
 
   <script>
     // Target datetime: 2027-01-16T08:00:00+07:00
@@ -799,7 +1243,7 @@
         updateDigit(fields.minutes, "00");
         updateDigit(fields.seconds, "00");
         if (statusEl) {
-          statusEl.textContent = "THE GATHERING HAS COMMENCED: EVENT IN PROGRESS";
+          statusEl.innerHTML = '<span class="status-dot" aria-hidden="true"></span>THE GATHERING HAS COMMENCED: EVENT IN PROGRESS';
         }
         if (navStatusText) {
           navStatusText.textContent = "EVENT ACTIVE";
@@ -824,6 +1268,21 @@
 
     updateCountdown();
     timerInterval = setInterval(updateCountdown, 1000);
+
+    // Automatic Dark/Light Mode synchronization with OS system preference
+    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function applySystemTheme(e) {
+      const isDark = e.matches;
+      document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) {
+        metaTheme.setAttribute("content", isDark ? "#071426" : "#FFFFFF");
+      }
+    }
+
+    darkModeQuery.addEventListener("change", applySystemTheme);
+    applySystemTheme(darkModeQuery);
   </script>
 </body>
 </html>
