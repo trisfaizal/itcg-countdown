@@ -6,7 +6,7 @@ Static countdown site served by Cloudflare Workers Static Assets.
 
 The event target is configured in `public/index.html`:
 
-- Event: #ITCG2027 — 6th IT Community Gathering
+- Event: #ITCG2027: 6th IT Community Gathering
 - Date: 16 January 2027
 - Time: 08:00 WIB (UTC+7)
 - Venue: Sutan Raja Hotel and Convention Centre
