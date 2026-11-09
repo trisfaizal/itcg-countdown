@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Official countdown to #ITCG2027: 6th IT Community Gathering. Saturday, 16 January 2027 at Sutan Raja Hotel and Convention Centre. Intelligence in Motion.">
+  <meta name="description" content="Countdown to #ITCG2027: IT Community Gathering. Saturday, 16 January 2027 at Sutan Raja Hotel and Convention Centre. Intelligence in Motion.">
   <title>#ITCG2027: IT Community Gathering</title>
 
   <!-- Typography: Inter & JetBrains Mono for Swiss modern editorial precision -->
@@ -18,11 +18,11 @@
       --red: #e52b3b;
       --red-hover: #cf1f2e;
       --red-subtle: rgba(229, 43, 59, 0.05);
-      --red-border: rgba(229, 43, 59, 0.22);
+      --red-border: rgba(229, 43, 59, 0.2);
       --blue: #174b85;
       --blue-hover: #103b6b;
       --blue-subtle: rgba(23, 75, 133, 0.06);
-      --blue-border: rgba(23, 75, 133, 0.22);
+      --blue-border: rgba(23, 75, 133, 0.2);
       --ink: #090d16;
       --ink-secondary: #1e293b;
       --slate: #475569;
@@ -36,8 +36,6 @@
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
       --shadow-sm: 0 1px 2px rgba(9, 13, 22, 0.03);
-      --shadow-md: 0 4px 16px rgba(9, 13, 22, 0.04);
-      --shadow-lg: 0 12px 32px rgba(9, 13, 22, 0.06);
     }
 
     *, *::before, *::after {
@@ -52,7 +50,6 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
       background-color: var(--bg);
-      scroll-behavior: smooth;
     }
 
     body {
@@ -69,26 +66,25 @@
       line-height: 1.5;
     }
 
-    /* Architectural outer frame container */
+    /* Container Shell */
     .shell {
-      width: min(1200px, calc(100% - 48px));
+      width: min(1180px, calc(100% - 48px));
       margin-inline: auto;
       position: relative;
     }
 
-    /* Masthead Navigation */
+    /* Compact Header */
     header {
       width: 100%;
-      border-bottom: 1px solid var(--border);
-      background-color: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid var(--line);
+      background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      flex-shrink: 0;
+      z-index: 20;
     }
 
     .header-inner {
-      height: 76px;
+      height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -98,20 +94,14 @@
     .brand-group {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
       color: inherit;
-      transition: opacity 0.2s ease;
     }
 
-    .brand-group:hover {
-      opacity: 0.88;
-    }
-
-    /* Geometric Brand Mark */
     .brand-mark {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       position: relative;
       display: inline-block;
       flex-shrink: 0;
@@ -121,21 +111,21 @@
     .brand-mark::after {
       content: "";
       position: absolute;
-      top: 2px;
-      bottom: 2px;
-      width: 12px;
+      top: 1px;
+      bottom: 1px;
+      width: 9px;
       transform: skew(-18deg);
       border-radius: 1px;
     }
 
     .brand-mark::before {
       background: var(--red);
-      left: 2px;
+      left: 1px;
     }
 
     .brand-mark::after {
       background: var(--blue);
-      left: 17px;
+      left: 12px;
     }
 
     .brand-text {
@@ -144,16 +134,16 @@
     }
 
     .brand-title {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 0.16em;
-      line-height: 1.15;
+      line-height: 1.1;
       color: var(--ink);
     }
 
     .brand-sub {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 700;
       letter-spacing: 0.16em;
       color: var(--muted);
@@ -167,28 +157,23 @@
       gap: 12px;
     }
 
-    .header-tag {
+    .event-pill {
       font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--slate);
-      text-transform: uppercase;
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: var(--surface-subtle);
-    }
-
-    .header-tag .tag-accent {
-      color: var(--red);
+      font-size: 11px;
       font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--red);
+      background: var(--red-subtle);
+      border: 1px solid var(--red-border);
+      padding: 4px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
     }
 
     .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
@@ -196,15 +181,15 @@
       color: var(--blue);
       background: var(--blue-subtle);
       border: 1px solid var(--blue-border);
-      padding: 6px 12px;
+      padding: 5px 11px;
       border-radius: 2px;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .pulse-dot {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       background-color: var(--blue);
       border-radius: 50%;
       position: relative;
@@ -227,329 +212,83 @@
       100% { transform: scale(1.6); opacity: 0; }
     }
 
-    .cal-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--surface);
-      border: 1px solid var(--border-dark);
-      padding: 6px 12px;
-      border-radius: 2px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .cal-btn:hover {
-      background: var(--ink);
-      color: #ffffff;
-      border-color: var(--ink);
-    }
-
-    .cal-btn svg {
-      width: 12px;
-      height: 12px;
-      flex-shrink: 0;
-    }
-
-    /* Main Content Area */
+    /* Main Centerpiece Area */
     main {
       flex: 1;
-      padding-top: 40px;
-      padding-bottom: 64px;
-    }
-
-    /* Integrated Swiss Conference Poster Card */
-    .conference-poster {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-    }
-
-    /* Crosshair structural registration marks */
-    .crosshair {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      color: var(--border-dark);
-      font-family: var(--font-mono);
-      font-size: 13px;
-      line-height: 14px;
-      text-align: center;
-      user-select: none;
-      pointer-events: none;
-    }
-    .crosshair-tl { top: -7px; left: -7px; }
-    .crosshair-tr { top: -7px; right: -7px; }
-    .crosshair-bl { bottom: -7px; left: -7px; }
-    .crosshair-br { bottom: -7px; right: -7px; }
-
-    /* Section 1: Hero Block */
-    .hero-block {
-      padding: 52px 48px 44px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-meta-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 34px;
-    }
-
-    .event-code-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      color: var(--red);
-      background: var(--red-subtle);
-      border: 1px solid var(--red-border);
-      padding: 5px 12px;
-      border-radius: 2px;
-      text-transform: uppercase;
-    }
-
-    .event-code-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--red);
-      border-radius: 1px;
-    }
-
-    .hero-context-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    /* Main Massive Title */
-    .hero-headline {
-      margin-bottom: 34px;
-    }
-
-    h1.hero-title {
-      font-size: clamp(2.3rem, 7.2vw, 6.2rem);
-      font-weight: 950;
-      line-height: 0.92;
-      letter-spacing: -0.05em;
-      text-transform: uppercase;
-      color: var(--ink);
-    }
-
-    .title-line-1 {
-      display: block;
-      color: var(--ink);
-    }
-
-    .title-line-2 {
-      display: block;
-      color: var(--blue);
-    }
-
-    /* Architectural accent rule */
-    .accent-bar {
-      height: 3px;
-      display: flex;
-      width: 100%;
-      background: var(--line);
-      margin-block: 30px;
-      overflow: hidden;
-    }
-
-    .accent-bar-red {
-      width: 120px;
-      background: var(--red);
-      height: 100%;
-    }
-
-    .accent-bar-blue {
-      width: 60px;
-      background: var(--blue);
-      height: 100%;
-    }
-
-    /* Conference Theme & Vision */
-    .theme-layout {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      align-items: baseline;
-      gap: 32px;
-    }
-
-    .theme-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    .theme-body {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-block: 28px;
+    }
+
+    .countdown-stage {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Event Title - visually secondary to countdown */
+    .stage-intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 6px;
+      margin-bottom: 24px;
     }
 
-    .theme-title {
-      font-size: clamp(1.25rem, 2.3vw, 1.75rem);
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--ink);
-      line-height: 1.25;
-    }
-
-    .theme-tagline {
-      font-size: clamp(0.95rem, 1.35vw, 1.18rem);
-      font-weight: 500;
-      color: var(--slate);
-      line-height: 1.5;
-    }
-
-    /* Section 2: Countdown Component Console */
-    .countdown-block {
-      padding: 42px 48px;
-      background: var(--surface-subtle);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .countdown-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 30px;
-    }
-
-    .countdown-heading {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      color: var(--ink);
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .countdown-heading::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      background: var(--red);
-      border-radius: 1px;
-    }
-
-    .countdown-target {
+    .event-edition-label {
       font-family: var(--font-mono);
       font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--slate);
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--red);
       text-transform: uppercase;
     }
 
-    /* 4-Part Tabular Grid */
-    .countdown-matrix {
+    h1.event-title {
+      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    /* Countdown Display - Primary Visual Focus */
+    .timer-container {
+      width: 100%;
+      max-width: 960px;
+      margin-inline: auto;
+      margin-block: 8px 24px;
+    }
+
+    .timer-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 16px;
+      align-items: center;
     }
 
-    .time-cell {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 24px 22px 20px;
-      position: relative;
+    .timer-col {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .time-cell:hover {
-      border-color: var(--border-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* Alternating Red / Blue top architectural accent */
-    .time-cell::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-    }
-
-    .time-days::before,
-    .time-minutes::before {
-      background: var(--red);
-    }
-
-    .time-hours::before,
-    .time-seconds::before {
-      background: var(--blue);
-    }
-
-    .time-header {
-      display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
+      position: relative;
+      padding-block: 10px 8px;
     }
 
-    .time-index {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-    }
-
-    .time-unit-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--slate);
-    }
-
-    .time-display {
+    .digit-box {
       display: block;
-      padding-block: 4px 10px;
+      line-height: 0.92;
     }
 
-    .time-digits {
-      font-size: clamp(3rem, 6.2vw, 5.2rem);
-      font-weight: 900;
-      line-height: 0.95;
+    .digit-val {
+      font-size: clamp(4.4rem, 9.6vw, 8.4rem);
+      font-weight: 950;
+      line-height: 0.9;
       letter-spacing: -0.06em;
       color: var(--ink);
       font-variant-numeric: tabular-nums lining-nums;
@@ -558,7 +297,7 @@
       transition: transform 0.15s ease-out, opacity 0.15s ease-out;
     }
 
-    .time-digits.digit-tick {
+    .digit-val.tick {
       animation: digitTick 0.18s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -567,63 +306,55 @@
       100% { transform: translateY(0); opacity: 1; }
     }
 
-    .time-footer {
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
+    .unit-meta {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      gap: 6px;
+      margin-top: 14px;
     }
 
-    .time-foot-note {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-      text-transform: uppercase;
+    .unit-rule {
+      width: 28px;
+      height: 2px;
+      background: var(--line);
+      border-radius: 1px;
     }
 
-    /* Live second tick heartbeat */
-    .second-beat {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+    .col-days .unit-rule,
+    .col-minutes .unit-rule {
+      background: var(--red);
+    }
+
+    .col-hours .unit-rule,
+    .col-seconds .unit-rule {
       background: var(--blue);
-      display: inline-block;
-      animation: secondPulse 1s ease-in-out infinite;
     }
 
-    @keyframes secondPulse {
-      0%, 100% { opacity: 0.3; transform: scale(0.85); }
-      50% { opacity: 1; transform: scale(1.15); }
+    .unit-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    /* Countdown Status Bar */
-    .countdown-bottom-bar {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .countdown-status-live {
+    /* Live status message */
+    .status-banner {
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.18em;
       color: var(--blue);
       text-transform: uppercase;
+      margin-top: 4px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .countdown-status-live::before {
+    .status-banner::before {
       content: "";
       width: 6px;
       height: 6px;
@@ -631,149 +362,78 @@
       border-radius: 50%;
     }
 
-    .countdown-tz {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    /* Section 3: Event Information Grid */
-    .specs-block {
-      padding: 42px 48px;
-    }
-
-    .specs-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .spec-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 24px 22px;
+    /* Theme and Tagline - subtle supporting text */
+    .stage-theme {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-      box-shadow: var(--shadow-sm);
+      align-items: center;
+      gap: 4px;
+      margin-top: 20px;
     }
 
-    .spec-item:hover {
-      border-color: var(--border-dark);
-      transform: translateY(-2px);
+    .theme-heading {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink);
     }
 
-    .spec-top {
+    .theme-caption {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate);
+    }
+
+    /* Event Specifications Bar */
+    .specs-strip {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      margin-top: 22px;
+      padding: 10px 24px;
+      background: transparent;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .spec-category {
+    .spec-entry {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .spec-tag {
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.15em;
       color: var(--red);
       text-transform: uppercase;
     }
 
-    .spec-index {
-      font-family: var(--font-mono);
-      font-size: 9px;
+    .spec-value {
       font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-    }
-
-    .spec-main {
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.35;
       color: var(--ink);
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
     }
 
-    .spec-sub {
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--slate);
-    }
-
-    .spec-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 10px;
+    .spec-divider {
+      color: var(--border-dark);
       font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--blue);
-      text-decoration: none;
-      text-transform: uppercase;
+      font-size: 11px;
+      user-select: none;
     }
 
-    .spec-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Section 4: Conference Pillars Banner */
-    .pillars-block {
-      padding: 20px 48px;
-      background: var(--surface-subtle);
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .pillar-col {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .pillar-indicator {
-      width: 4px;
-      height: 14px;
-      background: var(--red);
-      border-radius: 1px;
-    }
-
-    .pillar-col:nth-child(2) .pillar-indicator {
-      background: var(--blue);
-    }
-
-    .pillar-col:nth-child(3) .pillar-indicator {
-      background: var(--ink);
-    }
-
-    .pillar-text {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      color: var(--ink-secondary);
-      text-transform: uppercase;
-    }
-
-    /* Footer Colophon */
+    /* Compact Footer */
     footer {
-      border-top: 1px solid var(--border);
-      background-color: var(--surface);
-      padding: 28px 0;
-      margin-top: auto;
+      border-top: 1px solid var(--line);
+      background-color: var(--bg);
+      flex-shrink: 0;
+      padding-block: 14px;
     }
 
     .footer-content {
@@ -781,7 +441,7 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
@@ -789,210 +449,171 @@
       color: var(--muted);
     }
 
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .footer-brand {
       color: var(--ink);
       font-weight: 800;
     }
 
-    .footer-center {
-      letter-spacing: 0.2em;
-      color: var(--slate);
-    }
-
-    /* Responsive Breakpoints */
-    @media (max-width: 1024px) {
-      .shell {
-        width: calc(100% - 36px);
-      }
-
-      .hero-block {
-        padding: 44px 36px 36px;
-      }
-
-      .countdown-block {
-        padding: 36px 36px;
-      }
-
-      .specs-block {
-        padding: 36px 36px;
-      }
-
-      .theme-layout {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .specs-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 820px) {
-      .countdown-matrix {
-        gap: 12px;
-      }
-
-      .time-cell {
-        padding: 20px 14px 16px;
-      }
-
-      .time-digits {
-        font-size: clamp(2.4rem, 5.5vw, 4rem);
-      }
-    }
-
-    @media (max-width: 720px) {
-      .header-inner {
-        height: 68px;
-      }
-
-      .header-actions .header-tag {
-        display: none;
-      }
-
-      .cal-btn {
-        display: none;
+    /* Desktop Viewport Enforcement: 100vh with NO vertical scroll */
+    @media (min-width: 900px) and (min-height: 640px) {
+      html, body {
+        height: 100vh;
+        overflow: hidden;
       }
 
       main {
-        padding-top: 20px;
-        padding-bottom: 40px;
+        padding-block: 14px;
       }
 
-      .hero-block {
-        padding: 30px 20px 26px;
+      .stage-intro {
+        margin-bottom: 14px;
       }
 
-      .hero-meta-bar {
-        margin-bottom: 22px;
+      .timer-container {
+        margin-block: 4px 16px;
       }
 
-      .hero-context-label {
-        font-size: 9px;
-        letter-spacing: 0.12em;
+      .stage-theme {
+        margin-top: 16px;
       }
 
-      h1.hero-title {
-        font-size: clamp(1.85rem, 8vw, 3rem);
-        letter-spacing: -0.04em;
+      .specs-strip {
+        margin-top: 18px;
+        padding: 10px 22px;
+      }
+    }
+
+    /* Small Desktop / Laptop Screen Tuning */
+    @media (min-width: 900px) and (max-height: 760px) {
+      .header-inner {
+        height: 52px;
       }
 
-      .accent-bar {
-        margin-block: 22px;
+      .digit-val {
+        font-size: clamp(3.6rem, 7.5vw, 5.6rem);
       }
 
-      .theme-title {
-        font-size: 1.35rem;
-        letter-spacing: 0.04em;
+      .stage-intro {
+        margin-bottom: 8px;
       }
 
-      .countdown-block {
-        padding: 26px 20px;
+      .timer-container {
+        margin-block: 2px 8px;
       }
 
-      .countdown-matrix {
+      .stage-theme {
+        margin-top: 8px;
+      }
+
+      .specs-strip {
+        margin-top: 10px;
+        padding: 8px 16px;
+      }
+
+      footer {
+        padding-block: 10px;
+      }
+    }
+
+    /* Mobile and Tablet Styles */
+    @media (max-width: 720px) {
+      body {
+        overflow-y: auto;
+      }
+
+      main {
+        padding-block: 20px 16px;
+      }
+
+      .header-inner {
+        height: 54px;
+      }
+
+      .event-pill {
+        display: none;
+      }
+
+      .stage-intro {
+        margin-bottom: 12px;
+      }
+
+      .timer-container {
+        margin-block: 2px 14px;
+      }
+
+      .timer-row {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 14px 12px;
+        max-width: 360px;
       }
 
-      .time-cell {
-        padding: 16px 14px 12px;
+      .timer-col {
+        padding-block: 2px;
+        background: transparent;
+        border: none;
       }
 
-      .time-digits {
-        font-size: clamp(2.2rem, 8.5vw, 3.2rem);
+      .digit-val {
+        font-size: clamp(3rem, 13vw, 4.2rem);
       }
 
-      .specs-block {
-        padding: 26px 20px;
+      .stage-theme {
+        margin-top: 14px;
       }
 
-      .specs-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .spec-item {
-        padding: 18px 16px;
-      }
-
-      .pillars-block {
-        padding: 18px 20px;
+      .specs-strip {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+        width: 100%;
+        max-width: 360px;
+        margin-top: 16px;
+        padding: 12px 10px;
+        background: transparent;
+      }
+
+      .spec-entry {
+        justify-content: center;
+        font-size: 12px;
+      }
+
+      .spec-divider {
+        display: none;
+      }
+
+      footer {
+        padding-block: 10px;
       }
 
       .footer-content {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+        font-size: 9px;
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 380px) {
       .shell {
-        width: calc(100% - 20px);
+        width: calc(100% - 24px);
       }
 
-      .hero-block {
-        padding: 22px 14px 18px;
+      .digit-val {
+        font-size: 2.8rem;
       }
 
-      h1.hero-title {
-        font-size: 1.95rem;
-      }
-
-      .theme-title {
-        font-size: 1.15rem;
-        letter-spacing: 0.02em;
-      }
-
-      .theme-tagline {
-        font-size: 0.9rem;
-      }
-
-      .countdown-block {
-        padding: 20px 12px;
-      }
-
-      .time-cell {
-        padding: 14px 10px 10px;
-      }
-
-      .time-digits {
-        font-size: 2.1rem;
-      }
-
-      .time-foot-note {
-        font-size: 8px;
-        letter-spacing: 0.1em;
-      }
-
-      .specs-block {
-        padding: 20px 12px;
+      .timer-row {
+        gap: 12px 10px;
       }
 
       .brand-title {
-        font-size: 13px;
-        letter-spacing: 0.12em;
+        font-size: 12px;
       }
 
       .brand-sub {
-        font-size: 8px;
-        letter-spacing: 0.1em;
-      }
-
-      .status-pill {
-        padding: 5px 8px;
-        font-size: 9px;
-        letter-spacing: 0.1em;
+        font-size: 7px;
       }
     }
 
@@ -1005,8 +626,7 @@
         scroll-behavior: auto !important;
       }
       .pulse-dot::after,
-      .second-beat,
-      .time-digits.digit-tick {
+      .digit-val.tick {
         animation: none !important;
       }
     }
@@ -1014,11 +634,11 @@
 </head>
 <body>
 
-  <!-- Masthead Navigation -->
+  <!-- Compact Masthead Navigation -->
   <header>
     <div class="shell">
       <div class="header-inner">
-        <a href="#event-title" class="brand-group" aria-label="KOMITKABE Home">
+        <a href="#countdown-stage" class="brand-group" aria-label="KOMITKABE Home">
           <span class="brand-mark" aria-hidden="true"></span>
           <div class="brand-text">
             <span class="brand-title">KOMITKABE</span>
@@ -1027,21 +647,7 @@
         </a>
 
         <div class="header-actions">
-          <div class="header-tag">
-            <span>EDITION:</span>
-            <span class="tag-accent">06 / 2027</span>
-          </div>
-          <button type="button" class="cal-btn" id="header-cal-btn" title="Add event to calendar (ICS file)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-              <line x1="12" y1="14" x2="12" y2="18"></line>
-              <line x1="10" y1="16" x2="14" y2="16"></line>
-            </svg>
-            <span>ADD TO CALENDAR</span>
-          </button>
+          <span class="event-pill">#ITCG2027</span>
           <div class="status-pill" role="status">
             <span class="pulse-dot" aria-hidden="true"></span>
             <span id="nav-status-text">COUNTDOWN ACTIVE</span>
@@ -1051,201 +657,106 @@
     </div>
   </header>
 
-  <main class="shell">
-    <!-- Integrated Swiss Poster Layout -->
-    <article class="conference-poster">
-      <span class="crosshair crosshair-tl" aria-hidden="true">+</span>
-      <span class="crosshair crosshair-tr" aria-hidden="true">+</span>
-      <span class="crosshair crosshair-bl" aria-hidden="true">+</span>
-      <span class="crosshair crosshair-br" aria-hidden="true">+</span>
+  <!-- Main Countdown Stage -->
+  <main class="shell" id="countdown-stage">
+    <div class="countdown-stage">
 
-      <!-- Hero Section -->
-      <section class="hero-block" aria-labelledby="event-title">
-        <div class="hero-meta-bar">
-          <div class="event-code-badge">
-            <span class="event-code-dot" aria-hidden="true"></span>
-            <span>#ITCG2027</span>
-          </div>
-          <div class="hero-context-label">
-            ANNUAL TECHNOLOGY CONFERENCE • REGION INDUSTRIAL NETWORK
-          </div>
-        </div>
+      <!-- Event Title: Visually secondary to the timer -->
+      <div class="stage-intro">
+        <span class="event-edition-label">#ITCG2027</span>
+        <h1 class="event-title">IT COMMUNITY GATHERING</h1>
+      </div>
 
-        <div class="hero-headline">
-          <h1 class="hero-title" id="event-title">
-            <span class="title-line-1">IT COMMUNITY</span>
-            <span class="title-line-2">GATHERING</span>
-          </h1>
-        </div>
-
-        <div class="accent-bar" aria-hidden="true">
-          <div class="accent-bar-red"></div>
-          <div class="accent-bar-blue"></div>
-        </div>
-
-        <div class="theme-layout">
-          <div class="theme-tag">CONFERENCE THEME</div>
-          <div class="theme-body">
-            <h2 class="theme-title">INTELLIGENCE IN MOTION</h2>
-            <p class="theme-tagline">Driving Smart Industry. Securing the Future.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Countdown Component Console -->
-      <section class="countdown-block" aria-label="Countdown menuju acara">
-        <div class="countdown-top">
-          <div class="countdown-heading">TIME TO EVENT COMMENCEMENT</div>
-          <div class="countdown-target">TARGET: 16 JAN 2027, 08:00 WIB (UTC+07:00)</div>
-        </div>
-
-        <div class="countdown-matrix" role="timer" aria-live="off">
+      <!-- Countdown Component: Main Visual Focus -->
+      <div class="timer-container" role="timer" aria-label="Countdown menuju IT Community Gathering 2027">
+        <div class="timer-row">
           <!-- Days -->
-          <div class="time-cell time-days">
-            <div class="time-header">
-              <span class="time-index">01</span>
-              <span class="time-unit-label">DAYS</span>
-            </div>
-            <div class="time-display">
-              <span class="time-digits" id="days">--</span>
-            </div>
-            <div class="time-footer">
-              <span class="time-foot-note">INTERVAL T-MINUS</span>
+          <div class="timer-col col-days">
+            <span class="digit-box">
+              <span class="digit-val" id="days">--</span>
+            </span>
+            <div class="unit-meta">
+              <span class="unit-rule" aria-hidden="true"></span>
+              <span class="unit-name">DAYS</span>
             </div>
           </div>
 
           <!-- Hours -->
-          <div class="time-cell time-hours">
-            <div class="time-header">
-              <span class="time-index">02</span>
-              <span class="time-unit-label">HOURS</span>
-            </div>
-            <div class="time-display">
-              <span class="time-digits" id="hours">--</span>
-            </div>
-            <div class="time-footer">
-              <span class="time-foot-note">24-HOUR CYCLE</span>
+          <div class="timer-col col-hours">
+            <span class="digit-box">
+              <span class="digit-val" id="hours">--</span>
+            </span>
+            <div class="unit-meta">
+              <span class="unit-rule" aria-hidden="true"></span>
+              <span class="unit-name">HOURS</span>
             </div>
           </div>
 
           <!-- Minutes -->
-          <div class="time-cell time-minutes">
-            <div class="time-header">
-              <span class="time-index">03</span>
-              <span class="time-unit-label">MINUTES</span>
-            </div>
-            <div class="time-display">
-              <span class="time-digits" id="minutes">--</span>
-            </div>
-            <div class="time-footer">
-              <span class="time-foot-note">60-MINUTE CYCLE</span>
+          <div class="timer-col col-minutes">
+            <span class="digit-box">
+              <span class="digit-val" id="minutes">--</span>
+            </span>
+            <div class="unit-meta">
+              <span class="unit-rule" aria-hidden="true"></span>
+              <span class="unit-name">MINUTES</span>
             </div>
           </div>
 
           <!-- Seconds -->
-          <div class="time-cell time-seconds">
-            <div class="time-header">
-              <span class="time-index">04</span>
-              <span class="time-unit-label">SECONDS</span>
-            </div>
-            <div class="time-display">
-              <span class="time-digits" id="seconds">--</span>
-            </div>
-            <div class="time-footer">
-              <span class="time-foot-note">PRECISION TICK</span>
-              <span class="second-beat" aria-hidden="true"></span>
+          <div class="timer-col col-seconds">
+            <span class="digit-box">
+              <span class="digit-val" id="seconds">--</span>
+            </span>
+            <div class="unit-meta">
+              <span class="unit-rule" aria-hidden="true"></span>
+              <span class="unit-name">SECONDS</span>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="countdown-bottom-bar">
-          <div class="countdown-status-live" id="status" aria-live="polite">
-            COUNTING DOWN TO THE GATHERING
-          </div>
-          <div class="countdown-tz">
-            TIMEZONE: ASIA/JAKARTA (WIB, UTC+07:00)
-          </div>
+      <!-- Live Status Line -->
+      <div class="status-banner" id="status" aria-live="polite">
+        COUNTING DOWN TO THE GATHERING
+      </div>
+
+      <!-- Supporting Theme Text -->
+      <div class="stage-theme">
+        <div class="theme-heading">INTELLIGENCE IN MOTION</div>
+        <p class="theme-caption">Driving Smart Industry. Securing the Future.</p>
+      </div>
+
+      <!-- Compact Event Details Strip -->
+      <section class="specs-strip" aria-label="Informasi Acara">
+        <div class="spec-entry">
+          <span class="spec-tag">DATE</span>
+          <span class="spec-value">Saturday, 16 January 2027</span>
+        </div>
+        <span class="spec-divider" aria-hidden="true">/</span>
+        <div class="spec-entry">
+          <span class="spec-tag">TIME</span>
+          <span class="spec-value">08:00 WIB</span>
+        </div>
+        <span class="spec-divider" aria-hidden="true">/</span>
+        <div class="spec-entry">
+          <span class="spec-tag">VENUE</span>
+          <span class="spec-value">Sutan Raja Hotel and Convention Centre</span>
         </div>
       </section>
 
-      <!-- Event Information Section -->
-      <section class="specs-block" aria-label="Informasi Acara">
-        <div class="specs-grid">
-          <!-- Date -->
-          <article class="spec-item">
-            <div class="spec-top">
-              <span class="spec-category">DATE</span>
-              <span class="spec-index">[ 01 ]</span>
-            </div>
-            <div class="spec-main">Saturday, 16 January 2027</div>
-            <div class="spec-sub">Mark your calendar for the 6th edition gathering.</div>
-            <a href="#" class="spec-link" id="event-cal-link" role="button">+ Save Date to Calendar</a>
-          </article>
-
-          <!-- Time -->
-          <article class="spec-item">
-            <div class="spec-top">
-              <span class="spec-category">TIME</span>
-              <span class="spec-index">[ 02 ]</span>
-            </div>
-            <div class="spec-main">08:00 WIB</div>
-            <div class="spec-sub">Western Indonesia Time (UTC+07:00). Morning keynote.</div>
-            <span class="spec-link" style="color: var(--muted); cursor: default;">Doors open 07:30 WIB</span>
-          </article>
-
-          <!-- Venue -->
-          <article class="spec-item">
-            <div class="spec-top">
-              <span class="spec-category">VENUE</span>
-              <span class="spec-index">[ 03 ]</span>
-            </div>
-            <div class="spec-main">Sutan Raja Hotel and Convention Centre</div>
-            <div class="spec-sub">Grand Ballroom and Exhibition Hall.</div>
-            <a href="https://maps.google.com/?q=Sutan+Raja+Hotel+and+Convention+Centre" class="spec-link" target="_blank" rel="noopener noreferrer">Open in Google Maps &rarr;</a>
-          </article>
-
-          <!-- Organizer -->
-          <article class="spec-item">
-            <div class="spec-top">
-              <span class="spec-category">ORGANIZER</span>
-              <span class="spec-index">[ 04 ]</span>
-            </div>
-            <div class="spec-main">KOMITKABE</div>
-            <div class="spec-sub">Komunitas IT Kawasan Industri. Established network.</div>
-            <span class="spec-link" style="color: var(--slate); cursor: default;">Industrial IT Community</span>
-          </article>
-        </div>
-      </section>
-
-      <!-- Editorial Conference Pillars Strip -->
-      <aside class="pillars-block" aria-label="Conference Pillars">
-        <div class="pillar-col">
-          <span class="pillar-indicator" aria-hidden="true"></span>
-          <span class="pillar-text">01. SMART INDUSTRY INNOVATION</span>
-        </div>
-        <div class="pillar-col">
-          <span class="pillar-indicator" aria-hidden="true"></span>
-          <span class="pillar-text">02. INDUSTRIAL CYBERSECURITY</span>
-        </div>
-        <div class="pillar-col">
-          <span class="pillar-indicator" aria-hidden="true"></span>
-          <span class="pillar-text">03. REGIONAL COMMUNITY COLLABORATION</span>
-        </div>
-      </aside>
-    </article>
+    </div>
   </main>
 
-  <!-- Swiss Colophon Footer -->
+  <!-- Compact Footer -->
   <footer>
     <div class="shell">
       <div class="footer-content">
-        <div class="footer-left">
-          <span class="footer-brand">KOMITKABE</span>
-          <span>:</span>
-          <span>KOMUNITAS IT KAWASAN INDUSTRI</span>
+        <div class="footer-brand">
+          KOMITKABE : KOMUNITAS IT KAWASAN INDUSTRI
         </div>
-        <div class="footer-center">CONNECT. COLLABORATE. ELEVATE.</div>
-        <div>IT COMMUNITY GATHERING 2027. ALL RIGHTS RESERVED.</div>
+        <div>CONNECT. COLLABORATE. ELEVATE.</div>
+        <div>IT COMMUNITY GATHERING 2027</div>
       </div>
     </div>
   </footer>
@@ -1270,9 +781,9 @@
       if (!el) return;
       if (el.textContent !== nextValue) {
         el.textContent = nextValue;
-        el.classList.remove("digit-tick");
+        el.classList.remove("tick");
         void el.offsetWidth;
-        el.classList.add("digit-tick");
+        el.classList.add("tick");
       }
     }
 
@@ -1313,51 +824,6 @@
 
     updateCountdown();
     timerInterval = setInterval(updateCountdown, 1000);
-
-    // Clean .ics calendar generator for event attendees
-    function downloadCalendarICS() {
-      const icsData = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//KOMITKABE//ITCG2027//EN",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "BEGIN:VEVENT",
-        "UID:itcg2027-event-komitkabe@komitkabe.id",
-        "DTSTAMP:20261109T000000Z",
-        "DTSTART:20270116T010000Z",
-        "DTEND:20270116T090000Z",
-        "SUMMARY:#ITCG2027: IT Community Gathering",
-        "DESCRIPTION:Intelligence in Motion. Driving Smart Industry. Securing the Future. Organized by KOMITKABE.",
-        "LOCATION:Sutan Raja Hotel and Convention Centre",
-        "STATUS:CONFIRMED",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-
-      const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const tempLink = document.createElement("a");
-      tempLink.href = url;
-      tempLink.setAttribute("download", "ITCG-2027.ics");
-      document.body.appendChild(tempLink);
-      tempLink.click();
-      document.body.removeChild(tempLink);
-      URL.revokeObjectURL(url);
-    }
-
-    const headerCalBtn = document.getElementById("header-cal-btn");
-    const eventCalLink = document.getElementById("event-cal-link");
-
-    if (headerCalBtn) {
-      headerCalBtn.addEventListener("click", downloadCalendarICS);
-    }
-    if (eventCalLink) {
-      eventCalLink.addEventListener("click", function(e) {
-        e.preventDefault();
-        downloadCalendarICS();
-      });
-    }
   </script>
 </body>
 </html>
