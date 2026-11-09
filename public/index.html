@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="Countdown menuju #ITCG2027 — 6th IT Community Gathering. 16 Januari 2027, Sutan Raja Hotel and Convention Centre.">
+  <title>#ITCG2027 — IT Community Gathering</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --red: #e52b3b;
+      --blue: #174b85;
+      --ink: #101827;
+      --muted: #687487;
+      --line: #e4e8ef;
+      --paper: #f8f9fb;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      min-height: 100vh; margin: 0; color: var(--ink);
+      background:
+        radial-gradient(ellipse at 8% 12%, rgba(229,43,59,.055), transparent 27rem),
+        radial-gradient(ellipse at 92% 86%, rgba(23,75,133,.07), transparent 30rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex; flex-direction: column; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .26;
+      background-image: linear-gradient(rgba(16,24,39,.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(16,24,39,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+    .shell { width: min(1180px, calc(100% - 48px)); margin-inline: auto; position: relative; }
+    header {
+      height: 86px; display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: .13em; font-size: 13px; }
+    .mark { width: 28px; height: 28px; position: relative; display: inline-block; }
+    .mark::before, .mark::after { content: ""; position: absolute; inset: 0; transform: skew(-18deg); }
+    .mark::before { background: var(--red); width: 12px; }
+    .mark::after { background: var(--blue); width: 12px; left: 14px; }
+    .header-tag { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .22em; }
+    main { flex: 1; display: grid; place-items: center; padding: 72px 0 84px; }
+    .hero { width: 100%; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 11px; color: var(--red);
+      font-size: 11px; font-weight: 900; letter-spacing: .25em; text-transform: uppercase;
+    }
+    .eyebrow::before, .eyebrow::after { content: ""; width: 26px; height: 2px; background: currentColor; }
+    h1 {
+      margin: 25px 0 0; font-size: clamp(42px, 8.2vw, 104px); line-height: .91;
+      letter-spacing: -.075em; font-weight: 950; text-transform: uppercase;
+    }
+    h1 .line-two { display: block; color: var(--blue); }
+    .event-code { margin-top: 25px; color: var(--red); font-weight: 900; font-size: 13px; letter-spacing: .24em; }
+    .theme { margin-top: 15px; font-size: clamp(11px, 1.5vw, 14px); font-weight: 850; letter-spacing: .23em; }
+    .tagline { margin-top: 9px; color: var(--muted); font-size: 13px; letter-spacing: .025em; }
+    .countdown {
+      width: min(850px, 100%); margin: 56px auto 0; display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 13px;
+    }
+    .unit {
+      min-height: 154px; padding: 24px 12px 20px; background: rgba(255,255,255,.88);
+      border: 1px solid var(--line); border-radius: 5px; position: relative;
+      box-shadow: 0 12px 35px rgba(16,24,39,.045);
+    }
+    .unit::before { content: ""; position: absolute; top: -1px; left: -1px; right: -1px; height: 4px; background: var(--blue); }
+    .unit:first-child::before, .unit:nth-child(3)::before { background: var(--red); }
+    .number {
+      display: block; font-size: clamp(42px, 6.5vw, 76px); line-height: 1;
+      letter-spacing: -.07em; font-weight: 900; font-variant-numeric: tabular-nums;
+    }
+    .label { display: block; margin-top: 16px; color: var(--muted); font-size: 10px; font-weight: 850; letter-spacing: .2em; text-transform: uppercase; }
+    .status { min-height: 18px; margin-top: 25px; color: var(--blue); font-size: 10px; font-weight: 900; letter-spacing: .22em; }
+    .event-details {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 34px;
+      margin: 45px auto 0; padding-top: 25px; border-top: 1px solid var(--line); width: min(850px, 100%);
+    }
+    .detail { text-align: left; min-width: 190px; }
+    .detail-label { color: var(--muted); font-size: 9px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
+    .detail-value { margin-top: 8px; font-size: 13px; font-weight: 750; line-height: 1.45; }
+    footer { border-top: 1px solid var(--line); padding: 22px 0; color: var(--muted); font-size: 9px; font-weight: 750; letter-spacing: .16em; text-align: center; }
+    footer strong { color: var(--ink); }
+    .accent-rule { display: flex; width: 78px; height: 4px; margin: 30px auto 0; }
+    .accent-rule i { flex: 1; }
+    .accent-rule i:nth-child(1) { background: var(--red); }
+    .accent-rule i:nth-child(2) { background: #fff; border-block: 1px solid var(--line); }
+    .accent-rule i:nth-child(3) { background: var(--blue); }
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 34px, 520px); }
+      header { height: 70px; }
+      .header-tag { font-size: 8px; letter-spacing: .14em; }
+      main { padding: 65px 0 58px; }
+      h1 { letter-spacing: -.065em; }
+      .countdown { gap: 7px; margin-top: 40px; }
+      .unit { min-height: 112px; padding: 21px 4px 14px; }
+      .number { font-size: clamp(32px, 9vw, 48px); }
+      .label { font-size: 8px; letter-spacing: .1em; margin-top: 12px; }
+      .event-details { gap: 21px; margin-top: 35px; justify-content: flex-start; padding-inline: 10px; }
+      .detail { min-width: calc(50% - 12px); }
+      .detail:last-child { min-width: 100%; }
+      .theme { letter-spacing: .14em; }
+      .tagline { max-width: 290px; margin-inline: auto; line-height: 1.6; }
+    }
+    @media (max-width: 360px) {
+      .shell { width: calc(100% - 24px); }
+      .countdown { gap: 5px; }
+      .number { font-size: 30px; }
+      .unit { min-height: 100px; }
+      .label { font-size: 7px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero { animation: rise .7s ease-out both; }
+      @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <div class="wordmark"><span class="mark" aria-hidden="true"></span><span>KOMITKABE</span></div>
+    <div class="header-tag">6TH IT COMMUNITY GATHERING / 2027</div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="event-title">
+      <div class="eyebrow">Save the date</div>
+      <h1 id="event-title">IT COMMUNITY<span class="line-two">GATHERING</span></h1>
+      <div class="event-code">#ITCG2027</div>
+      <div class="theme">INTELLIGENCE IN MOTION</div>
+      <p class="tagline">Driving Smart Industry. Securing the Future.</p>
+
+      <div class="countdown" role="timer" aria-label="Countdown menuju acara">
+        <div class="unit"><span class="number" id="days">---</span><span class="label">Days</span></div>
+        <div class="unit"><span class="number" id="hours">--</span><span class="label">Hours</span></div>
+        <div class="unit"><span class="number" id="minutes">--</span><span class="label">Minutes</span></div>
+        <div class="unit"><span class="number" id="seconds">--</span><span class="label">Seconds</span></div>
+      </div>
+      <div class="status" id="status" aria-live="polite">COUNTING DOWN TO THE GATHERING</div>
+
+      <div class="event-details">
+        <div class="detail">
+          <div class="detail-label">Date &amp; Time</div>
+          <div class="detail-value">Saturday, 16 January 2027<br>08:00 WIB</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Venue</div>
+          <div class="detail-value">Sutan Raja Hotel and<br>Convention Centre</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Organizer</div>
+          <div class="detail-value">KOMITKABE<br>Komunitas IT Kawasan Industri</div>
+        </div>
+      </div>
+      <div class="accent-rule" aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><strong>KOMITKABE</strong> &nbsp; • &nbsp; CONNECT. COLLABORATE. ELEVATE.</div></footer>
+
+  <script>
+    // Event time: 16 January 2027, 08:00 WIB (UTC+7).
+    const targetTime = new Date("2027-01-16T08:00:00+07:00").getTime();
+    const fields = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
+    const status = document.getElementById("status");
+    const pad = value => String(value).padStart(2, "0");
+
+    function updateCountdown() {
+      const remaining = targetTime - Date.now();
+
+      if (remaining <= 0) {
+        Object.values(fields).forEach(field => field.textContent = "00");
+        status.textContent = "THE GATHERING HAS STARTED";
+        return;
+      }
+
+      const totalSeconds = Math.floor(remaining / 1000);
+      fields.days.textContent = String(Math.floor(totalSeconds / 86400));
+      fields.hours.textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
+      fields.minutes.textContent = pad(Math.floor((totalSeconds % 3600) / 60));
+      fields.seconds.textContent = pad(totalSeconds % 60);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
